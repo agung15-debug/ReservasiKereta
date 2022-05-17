@@ -9,10 +9,10 @@ import java.util.logging.Logger;
 
 public class daoKereta implements interfaceKereta{
     Connection connection;
-    final String insert = "INSERT INTO kereta (asal,tujuan, jam_berangkat, jam_sampai, harga, jumlah_tempat) VALUES (?, ?, ?, ?, ?, ?);";
-    final String update = "UPDATE kereta SET asal=?, tujuan=?, jam_berangkat=?, jam_sampai=?, harga=?, jumlah_tempat=? WHERE id=? ;";
-    final String delete = "DELETE FROM film WHERE id=? ;";
-    final String select = "SELECT * FROM kereta ORDER BY id DESC;";
+    final String insert = "INSERT INTO `kereta` (asal, tujuan, jam_berangkat, jam_sampai, harga, jumlah_tempat) VALUES (?, ?, ?, ?, ?, ?);";
+    final String update = "UPDATE kereta SET asal=?, tujuan=?, jam_berangkat=?, jam_sampai=?, harga=?, jumlah_tempat=? WHERE id_kereta=? ;";
+    final String delete = "DELETE FROM kereta WHERE id_kereta=? ;";
+    final String select = "SELECT * FROM kereta ORDER BY id_kereta DESC;";
     
     public daoKereta(){
         connection = Connector.connection();
@@ -93,13 +93,13 @@ public class daoKereta implements interfaceKereta{
             ResultSet rs = st.executeQuery(select);
             while (rs.next()) {
                 Kereta kereta1 = new Kereta();
-                kereta1.setId(rs.getInt("id"));
-                kereta1.setAsal(rs.getString("Asal"));
-                kereta1.setTujuan(rs.getString("Tujuan"));
-                kereta1.setJamBerangkat(rs.getString("Jam Berangkat"));
-                kereta1.setJamSampai(rs.getString("Jam Sampai"));
-                kereta1.setHarga(rs.getInt("Harga"));
-                kereta1.setJumlahTempat(rs.getInt("Jumlah Tempat"));
+                kereta1.setId(rs.getInt("id_kereta"));
+                kereta1.setAsal(rs.getString("asal"));
+                kereta1.setTujuan(rs.getString("tujuan"));
+                kereta1.setJamBerangkat(rs.getString("jam_berangkat"));
+                kereta1.setJamSampai(rs.getString("jam_sampai"));
+                kereta1.setHarga(rs.getInt("harga"));
+                kereta1.setJumlahTempat(rs.getInt("jumlah_tempat"));
                 listKereta.add(kereta1);
             }
         } catch (SQLException ex) {

@@ -12,7 +12,7 @@ public class tableModelKereta extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 2;
+        return 6;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class tableModelKereta extends AbstractTableModel {
             case 4:
                 return "Harga";
             case 5:
-                return "Jumlah Tempat Duduk";
+                return "Kapasitas";
             default:
                 return null;
         }

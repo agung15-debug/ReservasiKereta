@@ -1,6 +1,6 @@
 package main;
 
-import view.LoginUser;
+import view.viewKereta;
 
 
 public class Main {
@@ -10,7 +10,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new LoginUser().setVisible(true);
+        new viewKereta().setVisible(true);
     }
     
 }
